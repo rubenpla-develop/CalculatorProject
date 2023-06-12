@@ -51,4 +51,17 @@ class CalculatorUtilsTest {
         assertTrue(isCorrect)
     }
 
+    @Test
+    fun calculator_callAddOperator_invalidSub_noReturn() {
+        val operator = "-"
+        val operation = "4-"
+        var isCorrect = false
+
+        calculatorUtils?.addOperator(operator, operation) {
+            isCorrect = true
+        }
+
+        assertFalse(isCorrect)
+    }
+
 }
