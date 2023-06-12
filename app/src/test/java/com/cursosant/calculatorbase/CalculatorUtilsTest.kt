@@ -46,8 +46,9 @@ class CalculatorUtilsTest {
 
         calculatorUtils?.addOperator(operator, operation) {
             isCorrect = true
-            assertTrue(isCorrect)
         }
+
+        assertTrue(isCorrect)
     }
 
 }
