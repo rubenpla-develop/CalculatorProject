@@ -7,6 +7,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.verify
+import org.mockito.Mockito.verifyNoInteractions
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
@@ -62,6 +63,19 @@ class CalculatorUtilsTest {
         }
 
         assertFalse(isCorrect)
+    }
+
+    @Test
+    fun calculator_callPoint_firstPoint_noReturn() {
+        val operation = "3x2"
+        var isCorrect = false
+
+        calculatorUtils?.addPoint(operation) {
+            isCorrect = true
+        }
+
+        assertTrue(isCorrect)
+        verifyNoInteractions(operations)
     }
 
 }
